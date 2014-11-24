@@ -7,8 +7,6 @@
  */
 namespace Csv;
 
-use Flo\Exception;
-
 class Csv
 {
     /**
@@ -74,7 +72,7 @@ class Csv
     public function setLines($lines)
     {
         if (!is_array($lines) && !$lines instanceof \Traversable) {
-            throw new Exception\InvalidArgumentException(sprintf(
+            throw new \InvalidArgumentException(sprintf(
                 '%s expects an array or Traversable argument; received "%s"',
                 __METHOD__,
                 (is_object($lines) ? get_class($lines) : gettype($lines))
@@ -105,7 +103,7 @@ class Csv
      *
      * @return $this
      */
-    public function merge(CSV $csv)
+    public function merge(Csv $csv)
     {
         $this->merge[] = $csv;
 
